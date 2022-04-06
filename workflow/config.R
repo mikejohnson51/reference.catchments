@@ -11,9 +11,11 @@ library(archive)
 
 sf_use_s2(FALSE)
 
-
 epa_bucket = 'edap-ow-data-commons'
 base_dir   = '/Volumes/Transcend/geometry_paper'
+
+
+num                = 20
 
 epa_download   = paste0(base_dir, '/01_EPA_downloads/')
 catchments_dir = paste0(base_dir, '/02_Catchments/')
