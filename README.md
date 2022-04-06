@@ -15,6 +15,20 @@ These will serve as the national reference catchments in the USGS geospatial fab
 - `GDAL` (`ogr2ogr` is used for file conversions)
 - `mapshaper` (used for polygon simplification, not enough to use `rmapshaper`)
 
+### Simple, Valid, POLYGON
+
+**Simple**: a simple polygon does not intersect itself and has no holes.
+
+**Valid**: Validity is most important for polygons, which define bounded areas and require a good deal of structure. Some of the rules of polygon validity are:
+
+  - Polygon rings must close.
+  - Rings that define holes should be inside rings that define exterior boundaries.
+  - Rings may not self-intersect (they may neither touch nor cross themselves).
+  - Rings may not touch other rings, except at a point.
+  - Elements of multi-polygons may not touch each other.
+  
+**MULTI vs POLYGON**: A `POLYGON` is a shape with a closed exterior comprised of lines. A `MULTIPOLYGON` is a collection of `POLYGON`. A multipolygon catchment reprenstation _VIOLATES_ the assumption of 1 flowline to 1 catchment divide expected.
+
 ## Workflow
 
 This project is set up as a series of scripts contained in the workflow directory. They can be run in the following order to tackle the summarized tasks:
